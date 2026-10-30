@@ -1,0 +1,70 @@
+/* ClippyChoppy style — Win98 choppy sprite + balloon.
+ *
+ * CHOPPY RULES: no transitions, no fades, no smoothing. Every state change
+ * snaps instantly. Sprite steps with steps(1, end); pixels stay hard with
+ * image-rendering: pixelated.
+ */
+
+/* Root: fixed assistant node. transition: none pins the teleport snap even
+   if page CSS tries to animate divs. */
+.clippy-choppy {
+  position: fixed;
+  z-index: 400;
+  cursor: pointer;
+  user-select: none;
+  transition: none !important;
+  animation-timing-function: steps(1, end);
+}
+
+/* Sprite cell: size + background set from JS (framesize x scale).
+   background-position snaps per frame from the setTimeout stepper. */
+.clippy-sprite {
+  display: block;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: none !important;
+  animation-timing-function: steps(1, end);
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.35));
+}
+
+/* Balloon: Office-assistant pale yellow, square corners, Tahoma 11px.
+   Instant show/hide via display swap (.show). No opacity, no fade. */
+.clippy-balloon {
+  position: fixed;
+  z-index: 401;
+  display: none;
+  max-width: 240px;
+  background: #ffffe1;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4);
+  padding: 8px 8px 6px;
+  font-family: Tahoma, "MS Sans Serif", Geneva, sans-serif;
+  font-size: 11px;
+  line-height: 1.45;
+  transition: none !important;
+}
+
+.clippy-balloon.show {
+  display: block;
+}
+
+.clippy-balloon-text {
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+/* Balloon tail pointing at Clippy. */
+.clippy-balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  width: 0;
+  height: 0;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 8px solid #000;
+}
