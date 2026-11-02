@@ -8,6 +8,10 @@ Clippy on your web page, in plain JavaScript.
 
 An unofficial fan project, not affiliated with or endorsed by Microsoft. The Clippy character artwork in `assets/clippy/` belongs to its owner and is outside the MIT licence.
 
+<!-- live-links -->
+**Project page:** [gitguy268.github.io/clippy-choppy](https://gitguy268.github.io/clippy-choppy/) · [clippy-choppy.vercel.app](https://clippy-choppy.vercel.app)
+<!-- /live-links -->
+
 <!-- run-steps:start -->
 ## Run it locally, step by step
 
